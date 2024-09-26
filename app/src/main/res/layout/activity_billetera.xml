@@ -12,7 +12,7 @@
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Simulador de Billetera Móvil"
+        android:text="Billetera Digital BrLearnix"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_gravity="center"
