@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/main"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/background_light"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Simulador de Billetera Móvil"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:paddingBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnMostrarSaldo"
+        android:layout_width="323dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#5da8f0"
+        android:text="Mostrar Saldo"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btnIngresarDinero"
+        android:layout_width="323dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#5da8f0"
+        android:text="Ingresar Dinero"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btnRetirarDinero"
+        android:layout_width="323dp"
+        android:layout_height="70dp"
+        android:text="Retirar Dinero"
+        android:backgroundTint="#5da8f0"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnSalir"
+        android:layout_width="323dp"
+        android:layout_height="70dp"
+        android:text="Salir"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="24dp" />
+
+    <EditText
+        android:id="@+id/etCantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese cantidad"
+        android:inputType="numberDecimal"
+        android:visibility="gone"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnAceptar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Aceptar"
+        android:backgroundTint="#ddd"
+        android:textColor="@android:color/white"
+        android:visibility="gone"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/tvSaldo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saldo actual: $0.00"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:paddingBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnMostrarOperaciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mostrar Operaciones"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/tvOperaciones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Operaciones realizadas:"
+        android:visibility="visible" />
+</LinearLayout>

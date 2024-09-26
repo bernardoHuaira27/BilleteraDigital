@@ -1,0 +1,105 @@
+package com.tuapp.billeteramovil
+
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.minebanco.R
+
+class BilleteraActivity : AppCompatActivity() {
+
+    // Variable que almacena el saldo de la billetera
+    private var saldo = 0.0
+    private var accion = ""
+
+    // Elementos de la interfaz
+    private lateinit var textSaldo: TextView
+    private lateinit var inputCantidad: EditText
+    private lateinit var btnAceptar: Button
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_billetera)
+
+        // Inicializar referencias a los elementos de la vista
+        val btnMostrarSaldo = findViewById<Button>(R.id.btnMostrarSaldo)
+        val btnIngresarDinero = findViewById<Button>(R.id.btnIngresarDinero)
+        val btnRetirarDinero = findViewById<Button>(R.id.btnRetirarDinero)
+        val btnSalir = findViewById<Button>(R.id.btnSalir)
+        textSaldo = findViewById(R.id.tvSaldo)
+        inputCantidad = findViewById(R.id.etCantidad)
+        btnAceptar = findViewById(R.id.btnAceptar)
+
+        // Configurar acciones para los botones
+        btnMostrarSaldo.setOnClickListener {
+            mostrarSaldo()
+        }
+
+        btnIngresarDinero.setOnClickListener {
+            accion = "ingresar"
+            mostrarInput()
+        }
+
+        btnRetirarDinero.setOnClickListener {
+            accion = "retirar"
+            mostrarInput()
+        }
+
+        btnSalir.setOnClickListener {
+            finish() // Cierra la actividad
+        }
+
+        // Acción para aceptar la operación de ingresar o retirar
+        btnAceptar.setOnClickListener {
+            realizarAccion()
+        }
+    }
+
+    // Función para mostrar el saldo actual
+    private fun mostrarSaldo() {
+        textSaldo.text = "Saldo actual: $${String.format("%.2f", saldo)}"
+    }
+
+    // Mostrar el campo de cantidad para ingresar o retirar dinero
+    private fun mostrarInput() {
+        inputCantidad.visibility = View.VISIBLE
+        btnAceptar.visibility = View.VISIBLE
+        inputCantidad.text.clear()
+    }
+
+    // Realizar la acción de ingresar o retirar dinero
+    private fun realizarAccion() {
+        val cantidad = inputCantidad.text.toString().toDoubleOrNull()
+        if (cantidad == null || cantidad <= 0) {
+            Toast.makeText(this, "Ingrese una cantidad válida.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        when (accion) {
+            "ingresar" -> {
+                saldo += cantidad
+                mostrarMensaje("Se ingresó $$cantidad")
+            }
+            "retirar" -> {
+                if (cantidad > saldo) {
+                    Toast.makeText(this, "Saldo insuficiente.", Toast.LENGTH_SHORT).show()
+                } else {
+                    saldo -= cantidad
+                    mostrarMensaje("Se retiró $$cantidad")
+                }
+            }
+        }
+
+        mostrarSaldo()
+        inputCantidad.visibility = View.GONE
+        btnAceptar.visibility = View.GONE
+    }
+
+    // Mostrar un mensaje al usuario
+    private fun mostrarMensaje(mensaje: String) {
+        Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
+    }
+}

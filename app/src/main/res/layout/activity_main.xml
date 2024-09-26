@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- LinearLayout para organizar los botones en filas centrados horizontalmente -->
+        <LinearLayout
+            android:layout_width="412dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <!-- Fila 1: Botón 1 centrado horizontalmente -->
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="184dp"
+                android:layout_height="181dp"
+                android:gravity="center"
+                app:srcCompat="@drawable/logo" />
+
+            <Button
+                android:id="@+id/buttonIniciar"
+                android:layout_width="370dp"
+                android:layout_height="73dp"
+                android:text="Iniciar" />
+
+            <!-- Fila 2: Botón 2 centrado horizontalmente -->
+            <Button
+                android:id="@+id/buttonAjustes"
+                android:layout_width="369dp"
+                android:layout_height="73dp"
+                android:text="Ajustes" />
+
+            <!-- Fila 3: Botón 3 centrado horizontalmente -->
+            <Button
+                android:id="@+id/buttonInformacion"
+                android:layout_width="371dp"
+                android:layout_height="73dp"
+                android:text="Informacion" />
+
+        </LinearLayout>
+
+
+
+    </FrameLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
